@@ -4,6 +4,6 @@
 
 @layer base {
     button {
-        @apply py-1 px-4 bg-[#0095FF] rounded-2xl hover:cursor-pointer 
+        @apply py-1 px-4 bg-[#0095FF] rounded-md hover:cursor-pointer min-w-[164px] min-h-[40px] font-bold
     }
 }
