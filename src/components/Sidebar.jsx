@@ -5,7 +5,7 @@ import {RiAccountPinCircleFill} from 'react-icons/ri';
 
 const Sidebar = () =>{
     return(
-        <div className="sm:w-[10%] w-full md:h-[100%] p-8 pt-4 pb-4">
+        <div className="sm:w-[10%] w-full md:h-[100%] p-8 pt-4 pb-4 flex-grow-0 min-w-[140px]">
             <div className="flex w-full h-full bg-[#202B3B] rounded-2xl min-w-[68px]">
                 <div className="flex sm:flex-col flex-row w-full">
                     <TiWeatherWindy size={30} className="text-slate-500 self-center mt-6 mb-6 cursor-pointer"/>
