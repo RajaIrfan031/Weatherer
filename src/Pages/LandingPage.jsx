@@ -8,7 +8,7 @@ const Home = () =>{
   const [showForm, setShowForm] = useState(false);
 
   const handleShowForm =()=>{
-    setShowForm(!showForm);
+    setShowForm(true);
   }
 
     return(
