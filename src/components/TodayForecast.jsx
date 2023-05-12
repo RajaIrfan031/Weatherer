@@ -40,14 +40,14 @@ const TodayForecast = ()=>{
 
       return(
             <>
-            <div className='h-full mx-4 mt-4 '>
-                  <div className='bg-[#202B3B] pl-8 pt-4 sm:w-full rounded-2xl w-[120px]'>
-                        <h1 className='text-slate-500 text-sm font-medium'>Today's Forecast</h1>
-                        <div className='sm:flex sm:flex-row sm:w-full sm:justify-between sm:items-center '>
+            <div className='mb-4 mt-4 sm:w-full sm:pl-0 w-[95%] pl-[5%]'>
+                  <div className='bg-[#202B3B] sm:pl-2 p-2 pt-4 w-full rounded-2xl min:w-[320px]'>
+                        <h1 className='text-slate-500 text-sm font-medium mb-2'>Today's Forecast</h1>
+                        <div className='grid grid-flow-row sm:grid-cols-6 grid-cols-2 w-full sm:gap-4'>
                         {
                         Object(forecast).map((item, index)=>{
                               return(
-                                    <div className='p-4 border-r border-r-slate-700 text-slate-500 font-semibold justify-center sm:w-full'>
+                                    <div key={index} className='p-0 sm:border-r border-r-slate-700 border-b sm:border-b-0 m-1 sm:m-0 text-slate-500 font-semibold justify-center sm:w-full'>
                                           <h1>{item.time}</h1>
                                           {
                                                 item.temp <=15 ?
