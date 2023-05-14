@@ -5,14 +5,14 @@ import {RiAccountPinCircleFill} from 'react-icons/ri';
 
 const Sidebar = () =>{
     return(
-        <div className="flex sm:w-[10%] w-full justify-center md:h-[100%] sm:p-8 pt-4 pb-4 sm:flex-grow-0 min-w-[140px] max-h-[600px]">
+        <div className="flex w-full md:w-[10%] justify-center md:h-[100%] md:p-8 pt-4 pb-4 sm:flex-grow-0 min-w-[140px] max-h-[600px]">
             <div className="flex w-[90%] h-full bg-[#202B3B] rounded-2xl">
-                <div className="flex sm:flex-col flex-row w-full">
+                <div className="flex md:flex-col flex-row w-full">
                     <TiWeatherWindy size={30} className="text-slate-500 self-center mt-6 mb-6 cursor-pointer"/>
-                    <ul className="flex flex-row sm:flex-col w-full justify-stretch text-slate-400">
+                    <ul className="flex flex-row md:flex-col w-full justify-stretch text-slate-400">
                         <li className="flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-200">
                             <TiWeatherWindyCloudy className="self-center"/>
-                            <p className="sm:text-sm text-xs self-center">Weather</p>
+                            <p className="md:text-md text-xs self-center">Weather</p>
                         </li>
                         <li className="flex flex-col my-4 cursor-pointer p-2 w-full hover:text-slate-200">
                             <TiThList className="self-center"/>
