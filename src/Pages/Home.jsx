@@ -4,11 +4,12 @@ import City from "../components/City";
 import TodayForecast from "../components/TodayForecast";
 import SemiDetail from "../components/SemiDetail";
 import SevenDaysForecast from "../components/SevenDaysForecast";
-
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 const Home = ()=>{
     return(
-        <>
+        <Provider store={store}>
             <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row">
               <div className="flex flex-auto bg-[#0B131E]">
                 <Sidebar />
@@ -22,7 +23,7 @@ const Home = ()=>{
                 <SevenDaysForecast />
               </div>
             </div>
-        </>
+        </Provider>
     )
 }
 

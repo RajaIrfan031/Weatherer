@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {FaCloudMoonRain,} from 'react-icons/fa'
 import {IoIosPartlySunny, IoMdSunny} from 'react-icons/io'
+import { useDispatch } from 'react-redux';
+import { getTodaysForecast } from '../redux/todaysForecastSlice';
 
 const TodayForecast = ()=>{
+      
+      const dispatch = useDispatch();
+
+      useEffect(()=>{
+            dispatch(getTodaysForecast());
+      }, [])
 
       const forecast = [
             {
