@@ -19,13 +19,11 @@ const todayForecastSlice = createSlice({
 })
 
 export const getTodaysForecast = createAsyncThunk('weather/todaysForecast',async()=>{
-      console.log("before call");
-      const data = await fetch("http://api.weatherapi.com/v1/current.json?key=4fa4d82e8f4f4ca6b08191330232005&q=London");
-      console.log("data: ",data);
-      const result = await data.json();
-      console.log("result: ",result);
-      return result;
+      //const data = await fetch("http://api.weatherapi.com/v1/current.json?key=4fa4d82e8f4f4ca6b08191330232005&q=London");
+      // const result = await data.json();
+      // console.log("result: ",result);
+      return 'result';
 })
 
-export const {fetchTodaysForecast} = todayForecastSlice.actions;
+
 export default todayForecastSlice.reducer;

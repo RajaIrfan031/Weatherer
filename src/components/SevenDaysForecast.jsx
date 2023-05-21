@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import SemiDetail from './SemiDetail';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchThreeDaysForecast } from '../redux/threeDaysForecastSlice';
+import {getCurrentDate} from '../utils/getCurrentDate'
 
 const SevenDaysForecast = ()=>{
+
+      const dispatch = useDispatch();
+      const forecastData = useSelector(state => state.threeDaysForecast.data);
+      
+
+      useEffect(()=>{ 
+            console.log(getCurrentDate);
+            dispatch(fetchThreeDaysForecast());
+      },[]);
 
       const data =[
             {
@@ -18,44 +31,34 @@ const SevenDaysForecast = ()=>{
                   forecast: 'Sunny',
                   temp: '23/17'
             },
-            {
-                  day: 'Thu',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-            {
-                  day: 'Fri',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-            {
-                  day: 'Sat',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-            {
-                  day: 'Sun',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
       ]
 
       return(
             <>
-            <div className='flex h-full max-h-[768px] w-full mt-[4%] justify-center min-w-[320px]'>
-                  <div className='bg-[#202B3B] w-[80%] h-full rounded-xl pt-6 pl-6 text-slate-400'>
-                        <p className='font-semibold'>7-Days Forecast</p>
+            <div className='flex h-full max-h-[368px] w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
+                  <div className='bg-[#202B3B] h-full w-full rounded-xl pt-6 text-slate-400'>
+                        <SemiDetail />
+                        <div className='bg-[#202B3B] h-full w-full px-[2%] rounded-xl pt-6 text-slate-400 justify-center'>
+                        <p className='font-semibold'>3-Days Forecast</p>
                         {
-                              data.map((list, index)=>{
+                              forecastData.map((forecast, index)=>{
                                     return(
-                                          <div key={index} className='flex flex-row justify-between pr-4 my-8 border-b pb-4'>
-                                                <p className='text-slate-500'>{list.day}</p>
-                                                <p className='text-slate-500'>{list.forecast}</p>
-                                                <p className='text-slate-500'>{list.temp}</p>
+                                          <div key={index} className='flex flex-row w-full justify-between border-b py-4 border-b-slate-500'>
+                                                {/* <pre>{JSON.stringify(forecast, null, 2)}</pre> */}
+                                                <p className='text-sm'>{forecast.date}</p>
+                                                <div className='flex flex-row '>
+                                                      <img src={forecast.day.condition.icon} width={24} alt="" />
+                                                      <p className='text-sm'>{forecast.day.condition.text}</p>
+                                                </div>
+                                                <div className='flex flex-row'>
+                                                      <p className='font-semibold text-slate-300'>{forecast.day.maxtemp_c}</p>
+                                                      <p>&nbsp;/{forecast.day.mintemp_c}</p>                                                      
+                                                </div>
                                           </div>
                                     )
                               })
                         }
+                        </div>
                   </div>
             </div>
             </>
