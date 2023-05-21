@@ -1,29 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-      data: []
-};
+    data: [],
+}
 
 const todayForecastSlice = createSlice({
-      name: 'todaysForecastSlice',
-      initialState,
-      reducers:{
+    name: 'todayForecastSlice',
+    initialState,
+    reducers: {
 
-      },
-      extraReducers: (builder) =>{
-       builder
-       .addCase(getTodaysForecast.fulfilled, (state, action)=>{
+    },
+    extraReducers:(builder)=> {
+        builder
+        .addCase(fetchtodayForecast.fulfilled, (state, action)=>{
             state.data = action.payload;
-       })
-      }
+        })
+    }
 })
 
-export const getTodaysForecast = createAsyncThunk('weather/todaysForecast',async()=>{
-      //const data = await fetch("http://api.weatherapi.com/v1/current.json?key=4fa4d82e8f4f4ca6b08191330232005&q=London");
-      // const result = await data.json();
-      // console.log("result: ",result);
-      return 'result';
-})
-
+export const fetchtodayForecast = createAsyncThunk('getWeather/todaysForecast', async()=>{
+    const data = await fetch("https://api.weatherapi.com/v1/forecast.json?q=London&days=1&aqi=no&key=4fa4d82e8f4f4ca6b08191330232005%20");
+      const result = await data.json();
+      console.log("asfd ",result.forecast.forecastday[0].hour);
+      return result.forecast.forecastday[0].hour;
+}) 
 
 export default todayForecastSlice.reducer;

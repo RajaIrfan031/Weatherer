@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import {FaCloudMoonRain,} from 'react-icons/fa'
 import {IoIosPartlySunny, IoMdSunny} from 'react-icons/io'
-import { useDispatch } from 'react-redux';
-import { getTodaysForecast } from '../redux/todaysForecastSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchtodayForecast } from '../redux/todaysForecastSlice';
 
 const TodayForecast = ()=>{
       
       const dispatch = useDispatch();
+      const todayData = useSelector(state => state.todaysForecast);
 
       useEffect(()=>{
-            dispatch(getTodaysForecast());
+            dispatch(fetchtodayForecast());
       }, [])
 
       const forecast = [
@@ -70,7 +71,7 @@ const TodayForecast = ()=>{
                                     </div>
                               )
                         })
-                        }
+                        } 
                         </div>
                   </div>
             </div>
