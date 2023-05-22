@@ -11,25 +11,7 @@ const SevenDaysForecast = ()=>{
 
       useEffect(()=>{ 
             dispatch(fetchThreeDaysForecast());
-      },[]);
-
-      const data =[
-            {
-                  day: 'Mon',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-            {
-                  day: 'Tue',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-            {
-                  day: 'Wed',
-                  forecast: 'Sunny',
-                  temp: '23/17'
-            },
-      ]
+      },[]); 
 
       return(
             <>
@@ -42,7 +24,6 @@ const SevenDaysForecast = ()=>{
                               forecastData.map((forecast, index)=>{
                                     return(
                                           <div key={index} className='flex flex-row w-full justify-between border-b py-4 border-b-slate-500'>
-                                                {/* <pre>{JSON.stringify(forecast, null, 2)}</pre> */}
                                                 {
                                                       GetCurrentDate.TodayDate !== forecast.date ? 
                                                       <p className='text-sm'>{forecast.date}</p> 
@@ -54,8 +35,14 @@ const SevenDaysForecast = ()=>{
                                                       <p className='text-base mt-1'>{forecast.day.condition.text}</p>
                                                 </div>
                                                 <div className='flex flex-row'>
-                                                      <p className='font-semibold text-slate-300'>{forecast.day.maxtemp_c}</p>
-                                                      <p>&nbsp;/{forecast.day.mintemp_c}</p>                                                      
+                                                      <p className='font-semibold text-slate-300'>{
+                                                      forecast.day.maxtemp_c >=10 ? forecast.day.maxtemp_c.toString().substring(0,2)
+                                                      : forecast.day.maxtemp_c.toString().substring(0,1)
+                                                      }</p>
+                                                      <p>&nbsp;/{
+                                                      forecast.day.mintemp_c >=10 ? forecast.day.mintemp_c.toString().substring(0,2)
+                                                      : forecast.day.mintemp_c.toString().substring(0,1)
+                                                      }</p>                          
                                                 </div>
                                           </div>
                                     )

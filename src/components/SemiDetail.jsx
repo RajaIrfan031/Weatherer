@@ -20,7 +20,11 @@ const SemiDetail =()=>{
                             <button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button>
                         </div>
                         <div className='grid grid-cols-2'>
-                            <SemiDetailGrid icon={<FaTemperatureHigh />} value={detail.current.feelslike_c} title="Real Feel"/>
+                            <SemiDetailGrid icon={<FaTemperatureHigh />}
+                            value={detail.current.feelslike_c >=10 ? detail.current.feelslike_c.toString().substring(0,2)
+                                : detail.current.feelslike_c.toString().substring(0,1)
+                            }
+                            title="Real Feel"/>
                             <SemiDetailGrid icon={<FaWind />} value={detail.current.wind_kph} title="Wind"/>
                             <SemiDetailGrid icon={<WiHumidity />} value={detail.current.humidity} title="Humidity"/>
                             <SemiDetailGrid icon={<TbUvIndex />} value={detail.current.uv} title="UV Index"/>
