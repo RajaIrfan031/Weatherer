@@ -15,9 +15,6 @@ const SevenDaysForecast = ()=>{
 
       return(
             <>
-            <div className='flex h-full max-h-[368px] w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
-                  <div className='bg-[#202B3B] h-full w-full rounded-xl pt-6 text-slate-400 max-w-[360px]'>
-                        <SemiDetail />
                         <div className='bg-[#202B3B] h-full w-full px-[2%] rounded-xl pt-6 text-slate-400 justify-center'>
                         <p className='font-semibold'>3-Days Forecast</p>
                         {
@@ -48,9 +45,7 @@ const SevenDaysForecast = ()=>{
                                     )
                               })
                         }
-                        </div>
-                  </div>
-            </div>
+                        </div> 
             </>
       )
 }

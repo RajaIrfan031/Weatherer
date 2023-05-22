@@ -18,8 +18,7 @@ const TodayForecast = ()=>{
             <>
             <div className='mb-4 mt-4 sm:w-full sm:pl-0 w-[95%] pl-[5%]'>
                   <div className='bg-[#202B3B] sm:pl-2 p-2 pt-4 w-full rounded-2xl min:w-[320px]'>
-                        <h1 className='text-slate-500 text-sm font-medium mb-2'>Today's Forecast{GetCurrentTime.Time}
-                        </h1>
+                        <h1 className='text-slate-500 text-sm font-medium mb-2'>Today's Forecast</h1>
                         <div className='grid grid-flow-row sm:grid-cols-6 grid-cols-2 w-full sm:gap-4'>
                         { 
                         Object.keys(todayData).map((index)=>{

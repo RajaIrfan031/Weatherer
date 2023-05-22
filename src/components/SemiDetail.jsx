@@ -4,11 +4,12 @@ import {FaTemperatureHigh, FaWind} from 'react-icons/fa';
 import {WiHumidity} from 'react-icons/wi';
 import {TbUvIndex} from 'react-icons/tb';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const SemiDetail =()=>{
 
     const detail = useSelector(state => state.currentForecast.data);
- 
+    
 
     return(
         <>
@@ -17,7 +18,7 @@ const SemiDetail =()=>{
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row justify-between w-full mb-4'>
                             <p className='text-slate-400 font-semibold text-sm'>Air Conditions</p>
-                            <button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button>
+                            <Link to="/detailpage"><button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button></Link>
                         </div>
                         <div className='grid grid-cols-2'>
                             <SemiDetailGrid icon={<FaTemperatureHigh />}

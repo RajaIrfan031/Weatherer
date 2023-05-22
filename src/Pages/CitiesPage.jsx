@@ -5,9 +5,8 @@ import TodayForecast from "../components/TodayForecast";
 import SevenDaysForecast from "../components/SevenDaysForecast";
 import { Provider } from "react-redux";
 import store from "../redux/store";
-import SemiDetail from "../components/SemiDetail";
 
-const Home = ()=>{
+const CitiesPage = ()=>{
 
   const [city, setCity] = useState('');
   const searchCity = (event)=>{
@@ -37,16 +36,11 @@ const Home = ()=>{
                 <TodayForecast /> 
               </div>
               <div className="flex flex-auto">
-                <div className='flex h-full max-h-[368px] w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
-                      <div className='bg-[#202B3B] h-full w-full rounded-xl pt-6 text-slate-400 max-w-[360px]'>
-                        <SemiDetail />
-                        <SevenDaysForecast />
-                      </div>
-                </div>
+                <SevenDaysForecast />
               </div>
             </div>
         </Provider>
     )
 }
 
-export default Home;
+export default CitiesPage;

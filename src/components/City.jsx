@@ -23,7 +23,7 @@ const City = ()=>{
                         <h1 className='mt-4 text-4xl font-bold'>{locationData.current.temp_c}&#xb0;</h1>
                   </div>
                   <div className='flex flex-col flex-1 sm:p-16 w-full h-full justify-center align-middle'>
-                        <img src={locationData.current.condition.icon} alt="" width={96} height={96}/>
+                        <img src={locationData.current.condition.icon} alt=""/>
                   </div>
             </div>
             </>
