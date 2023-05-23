@@ -7,3 +7,18 @@
         @apply py-1 px-4 bg-[#0095FF] rounded-md hover:cursor-pointer min-w-[164px] min-h-[40px] font-bold
     }
 }
+
+@layer utilities {
+    @variants responsive {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+    }
+  }

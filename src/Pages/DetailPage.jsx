@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import City from "../components/City";
-import TodayForecast from "../components/TodayForecast"; 
 import FullDayForecast from "../components/FullDayForecast";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import TodayDetailedView from "../components/TodayDetailedView";
+import { useLocation } from "react-router-dom";
 
 const DetailPage = ()=>{
 
+  const location = useLocation();
+  const { currentForecast } = location.state !== undefined ? location.state : 'undefined';
   const [city, setCity] = useState('');
   const searchCity = (event)=>{
     if(event.key === 'Enter'){
@@ -32,11 +35,11 @@ const DetailPage = ()=>{
                   />
                 </div>
                 <City />
-                <TodayForecast />
+                <TodayDetailedView currentForecast={currentForecast}/>
               </div>
-              <div className="flex flex-auto">
-              <div className='flex h-full max-h-[368px] w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
-                <div className='bg-[#202B3B] h-full w-full rounded-xl pt-6 text-slate-400 max-w-[360px]'>
+              <div className="flex flex-auto bg-[#0B131E]">
+              <div className='flex h-full max-h-screen w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
+                <div className='bg-[#202B3B] h-[90%] w-full rounded-xl pt-6 text-slate-400 max-w-[360px] pl-4 ml-4 sm:ml-0 overflow-hidden'>
                   <FullDayForecast />
                 </div>
               </div>

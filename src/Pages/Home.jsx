@@ -27,7 +27,7 @@ const Home = ()=>{
                 <div className="w-full my-2">
                   <input
                   type="text" 
-                  placeholder="Enter city" 
+                  placeholder="Enter city"
                   className="rounded-sm w-full bg-[#202B3B] p-1 border-none focus:outline-none text-slate-300"
                   onChange={e => setCity(e.target.value)}
                   onKeyDown={(event)=>{searchCity(event)}}

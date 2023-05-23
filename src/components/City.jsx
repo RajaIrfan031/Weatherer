@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import {TiWeatherPartlySunny} from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentForecast } from '../redux/currentForecastSlice'; 
 
