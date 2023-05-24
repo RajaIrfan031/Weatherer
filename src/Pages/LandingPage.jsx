@@ -15,7 +15,7 @@ const Home = () =>{
 
     return(
         <>
-        <Provider store={store}>
+        <>
           <div className='h-screen w-screen bg-[#0B131E] p-8'>
           <div className='md:flex md:flex-row w-full h-full sm:px-32'>
             <div className='flex md:flex-1 justify-center align-middle'>
@@ -41,7 +41,7 @@ const Home = () =>{
             </div>
           </div>        
         </div> 
-      </Provider>
+      </>
       </>
     )
 }

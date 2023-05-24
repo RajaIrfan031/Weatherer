@@ -14,15 +14,15 @@ const City = ()=>{
 
       return(
             <>
-            <div className='flex flex-row text-slate-200 w-[90%]'>
-                  <div className='sm:flex-auto p-4 sm:p-0'>
-                        <h1 className='font-bold text-3xl'>{locationData.location.name}</h1>
+            <div className='grid grid-flow-row text-slate-200 h-full w-full grid-cols-5'>
+                  <div className='flex flex-col p-4 sm:flex-auto sm:p-0 col-span-3 mt-10 ml-4'>
+                        <h1 className='font-semibold text-xl'>{locationData.location.name}</h1>
                         <p className='text-xs text-slate-400 mt-1'>{locationData.location.region}</p>
                         <p className='text-xs text-slate-400 mt-1'>{locationData.location.country}</p>
                         <h1 className='mt-4 text-4xl font-bold'>{locationData.current.temp_c}&#xb0;</h1>
                   </div>
-                  <div className='flex flex-col flex-1 sm:p-16 w-full h-full justify-center align-middle'>
-                        <img src={locationData.current.condition.icon} alt=""/>
+                  <div className='flex w-full h-full col-span-2 max-h-[160px]'>
+                        <img width={160} src={locationData.current.condition.icon} alt=""/>
                   </div>
             </div>
             </>

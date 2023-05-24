@@ -2,33 +2,37 @@ import React from "react";
 import {TiWeatherWindyCloudy, TiThList, TiBookmark, TiWeatherWindy} from 'react-icons/ti';
 import {IoMdSettings} from 'react-icons/io';
 import {RiAccountPinCircleFill} from 'react-icons/ri';
+import { useNavigate } from "react-router-dom";
 
-const Sidebar = () =>{
+const Sidebar = ({ isOn}) =>{
+
+    const navigate = useNavigate();
+
     return(
         <div className="flex w-full md:w-[10%] justify-center md:h-[100%] md:p-8 pt-4 pb-4 sm:flex-grow-0 min-w-[140px] max-h-[600px]">
             <div className="flex w-[90%] h-full bg-[#202B3B] rounded-2xl">
                 <div className="flex md:flex-col flex-row w-full">
                     <TiWeatherWindy size={30} className="text-slate-500 self-center mt-6 mb-6 cursor-pointer"/>
                     <ul className="flex flex-row md:flex-col w-full justify-stretch text-slate-400">
-                        <li className="flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-200">
+                        <li onClick={()=>{navigate('/home')}} className={isOn === 1 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <TiWeatherWindyCloudy className="self-center"/>
-                            <p className="md:text-md text-xs self-center">Weather</p>
+                            <p className="font-semibold sm:text-sm text-xs self-center">Weather</p>
                         </li>
-                        <li className="flex flex-col my-4 cursor-pointer p-2 w-full hover:text-slate-200">
+                        <li onClick={()=>navigate('/citiespage')} className={isOn === 2 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <TiThList className="self-center"/>
-                            <p className="sm:text-sm text-xs self-center">Cities</p>
+                            <p className="font-semibold sm:text-sm text-xs self-center">Cities</p>
                         </li>
-                        <li className="flex flex-col my-4 cursor-pointer p-2 w-full  hover:text-slate-200">
+                        <li className={isOn === 3 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <TiBookmark  className="self-center"/>
-                            <p className="sm:text-sm text-xs self-center">Favorites</p>
+                            <p className="font-semibold sm:text-sm text-xs self-center">Favorites</p>
                         </li>
-                        <li className="flex flex-col my-4 cursor-pointer p-2 w-full  hover:text-slate-200">
+                        <li className={isOn === 4 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <IoMdSettings  className="self-center"/>
-                            <p className="sm:text-sm text-xs self-center">Settings</p>
+                            <p className="font-semibold sm:text-sm text-xs self-center">Settings</p>
                         </li>
-                        <li className="flex flex-col cursor-pointer p-2 w-full my-4 hover:text-slate-200">
+                        <li className={isOn === 5 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <RiAccountPinCircleFill  className="self-center"/>
-                            <p className="sm:text-sm text-xs self-center">Account</p>
+                            <p className="font-semibold sm:text-sm text-xs self-center">Account</p>
                         </li>
                     </ul>
                 </div>

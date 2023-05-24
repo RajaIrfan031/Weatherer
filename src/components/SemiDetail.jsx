@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 const SemiDetail =()=>{
 
     const detail = useSelector(state => state.currentForecast.data);
-    const todaysForecast = useSelector(state => state.todaysForecast.data)
-    const currentForecast = useSelector(state => state.currentForecast.data)
+    const todaysForecast = useSelector(state => state.todaysForecast.data);
+    const currentForecast = useSelector(state => state.currentForecast.data);
 
     return(
         <>

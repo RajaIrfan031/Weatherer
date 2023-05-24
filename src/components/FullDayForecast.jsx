@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { fetchtodayForecast } from '../redux/todaysForecastSlice';
 import { useLocation } from 'react-router-dom';
 
 const FullDayForecast = ()=>{

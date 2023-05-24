@@ -14,7 +14,7 @@ const DetailPage = ()=>{
   const [city, setCity] = useState('');
   const searchCity = (event)=>{
     if(event.key === 'Enter'){
-      
+      console.log(city);
     }
   }
 
@@ -22,7 +22,7 @@ const DetailPage = ()=>{
         <Provider store={store}>
             <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen">
               <div className="flex flex-auto bg-[#0B131E]">
-                <Sidebar />
+                <Sidebar isOn={0}/>
               </div>
               <div className="flex flex-col sm:p-8 sm:flex-auto bg-[#0B131E]">
                 <div className="w-full my-2">

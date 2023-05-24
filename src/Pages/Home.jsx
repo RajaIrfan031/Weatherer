@@ -3,8 +3,6 @@ import Sidebar from "../components/Sidebar";
 import City from "../components/City";
 import TodayForecast from "../components/TodayForecast"; 
 import SevenDaysForecast from "../components/SevenDaysForecast";
-import { Provider } from "react-redux";
-import store from "../redux/store";
 import SemiDetail from "../components/SemiDetail";
 
 const Home = ()=>{
@@ -12,16 +10,15 @@ const Home = ()=>{
   const [city, setCity] = useState('');
   const searchCity = (event)=>{
     if(event.key === 'Enter'){
-      
+      console.log(city);
     }
   }
 
-
     return(
-        <Provider store={store}>
+        <>
             <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen">
               <div className="flex flex-auto bg-[#0B131E]">
-                <Sidebar />
+                <Sidebar isOn={1} />
               </div>
               <div className="flex flex-col sm:p-8 sm:flex-auto bg-[#0B131E]">
                 <div className="w-full my-2">
@@ -45,7 +42,7 @@ const Home = ()=>{
                 </div>
               </div>
             </div>
-        </Provider>
+        </>
     )
 }
 

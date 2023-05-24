@@ -1,46 +1,49 @@
-import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import City from "../components/City";
-import TodayForecast from "../components/TodayForecast"; 
-import SevenDaysForecast from "../components/SevenDaysForecast";
-import { Provider } from "react-redux";
+import React from "react";
+import { Provider, useSelector } from "react-redux";
 import store from "../redux/store";
+import Sidebar from "../components/Sidebar";
+import CitiesList from "../components/CitiesList";
+import City from '../components/City'
 
-const CitiesPage = ()=>{
+const CitiesPage = ()=>{ 
 
-  const [city, setCity] = useState('');
-  const searchCity = (event)=>{
-    if(event.key === 'Enter'){
-      
+  const cities = [
+    {
+      id: 0,
+      city: 'Manchester',
+    },
+    {
+      id: 1,
+      city: 'London',
+    },
+    {
+      id: 2,
+      city: 'Birmingham'
+    },
+    {
+      id: 3,
+      city: 'Liverpool'
     }
-  }
+  ]
 
-
-    return(
-        <Provider store={store}>
-            <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen">
-              <div className="flex flex-auto bg-[#0B131E]">
-                <Sidebar />
-              </div>
-              <div className="flex flex-col sm:p-8 sm:flex-auto bg-[#0B131E]">
-                <div className="w-full my-2">
-                  <input
-                  type="text" 
-                  placeholder="Enter city" 
-                  className="rounded-sm w-full bg-[#202B3B] p-1 border-none focus:outline-none text-slate-300"
-                  onChange={e => setCity(e.target.value)}
-                  onKeyDown={(event)=>{searchCity(event)}}
-                  />
-                </div>
-                <City />
-                <TodayForecast /> 
-              </div>
-              <div className="flex flex-auto">
-                <SevenDaysForecast />
-              </div>
-            </div>
-        </Provider>
-    )
+  return(
+    <Provider store={store} >
+      <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid md:grid-cols-6 md:grid-flow-col bg-[#0B131E]">
+        <div className="col-span-1">
+          <Sidebar isOn={2}/>
+        </div>
+        <div className="col-span-3 md:p-0 p-8 md:pt-8">
+          <input className="p-2 bg-[#202B3B] w-full rounded-md text-slate-400" placeholder="Search for city"/>
+          <CitiesList list={cities}/>
+        </div>
+        <div className="col-span-2 md:pt-8 flex justify-center h-60 pb-4">
+          <div className="bg-[#202B3B] w-[80%] rounded-lg justify-center">
+            <City />
+          </div>
+        </div>
+      </div>
+    </Provider>
+  )
 }
 
 export default CitiesPage;

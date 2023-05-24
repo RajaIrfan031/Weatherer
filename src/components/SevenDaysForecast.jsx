@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import SemiDetail from './SemiDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchThreeDaysForecast } from '../redux/threeDaysForecastSlice';
 import GetCurrentDate from '../utils/GetCurrentDate';
