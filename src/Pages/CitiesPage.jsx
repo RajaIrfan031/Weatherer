@@ -6,6 +6,7 @@ import CitiesList from "../components/CitiesList";
 import City from '../components/City'
 import TodayThreeHours from "../components/TodayThreeHours";
 import { fetchCitiesWeather } from "../redux/getCitiesSlice";
+import {add} from '../redux/threeHoursSlice'
 
 const CitiesPage = ()=>{ 
 
@@ -14,7 +15,8 @@ const CitiesPage = ()=>{
   const data = useSelector(state => state.getCities.data);
 
   useEffect(()=>{
-    dispatch(fetchCitiesWeather())
+    dispatch(fetchCitiesWeather());
+    dispatch(add(citiesList[0]))
   },[]);
 
   

@@ -45,7 +45,6 @@ const GetCitiesSlice = createSlice({
 })
 
 export const fetchCitiesWeather = createAsyncThunk('getWeather/getMultiCitiesWeather', async()=>{
-  console.log("jkdf");
   
   const multiData = [];
   for(const city of initialState.data){ 
