@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    data: []
+    index: 0,
 }
 
 const ThreeHoursSlice = createSlice({
     name: 'threehours',
     initialState,
     reducers: {
-        add(state, action){
-            state.push(action.payload);
+        add(state, action){ 
+            state.index=action.payload;
         }
     }
 })

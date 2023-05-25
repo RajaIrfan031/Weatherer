@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const citiesSlice = createSlice({
     name: 'cities',
     initialState,

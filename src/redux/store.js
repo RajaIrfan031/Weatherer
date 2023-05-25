@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import todaysForecastSlice from "./todaysForecastSlice";
 import currentForecastSlice from "./currentForecastSlice";
 import threeDaysForecastSlice from "./threeDaysForecastSlice";
-import ThreeHoursSlice from "./ThreeHoursSlice";
+import ThreeHoursSlice from "./threeHoursSlice";
+import getCitiesSlice from './getCitiesSlice'
 
 const store = configureStore(
       {
@@ -10,7 +11,8 @@ const store = configureStore(
                   currentForecast: currentForecastSlice,
                   todaysForecast: todaysForecastSlice,
                   threeDaysForecast: threeDaysForecastSlice,
-                  threeHours: ThreeHoursSlice
+                  threeHours: ThreeHoursSlice,
+                  getCities: getCitiesSlice,
             }
       }
 )
