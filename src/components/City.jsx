@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentForecast } from '../redux/currentForecastSlice'; 
 
-const City = ()=>{
+const City = ({locationData})=>{
 
-      const dispatch = useDispatch();
-
-      useEffect(()=>{
-            dispatch(getCurrentForecast());
-      },[])
-
-      const locationData = useSelector(state => state.currentForecast.data)
+      
+      //const locationData = useSelector(state => state.currentForecast.data)
 
       return(
             <>

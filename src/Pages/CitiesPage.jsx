@@ -13,16 +13,19 @@ const CitiesPage = ()=>{
   const dispatch = useDispatch();
   const citiesList = useSelector(state => state.getCities.data)
   const data = useSelector(state => state.getCities.data);
+  const currentForecast = useSelector(state => state.currentForecast.data);
 
   useEffect(()=>{
     dispatch(fetchCitiesWeather());
-    dispatch(add(citiesList[0]))
+    dispatch(add(0))
   },[]);
+
+  const index = useSelector(state => state.threeHours.index);
 
   
   return(
     <Provider store={store} >
-      <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid md:grid-cols-6 md:grid-flow-col bg-[#0B131E]">
+      <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid md:grid-cols-6 md:grid-flow-col bg-[#0B131E] gap-4">
         <div className="col-span-1">
           <Sidebar isOn={2}/>
         </div>
@@ -30,9 +33,10 @@ const CitiesPage = ()=>{
           <input className="p-2 bg-[#202B3B] w-full rounded-md text-slate-400" placeholder="Search for city"/>
           <CitiesList list={citiesList}/>
         </div>
-        <div className="col-span-2 md:pt-8 flex justify-center h-60 pb-4">
-          <div className="bg-[#202B3B] w-[80%] rounded-lg justify-center">
-            <City />
+        <div className="col-span-2">
+          <div className="pt-8">
+          {/* {JSON.stringify(data[index],null, 2)} */}
+            {/* <City locationData={data[index]}/> */}
             <TodayThreeHours />
           </div>
         </div>

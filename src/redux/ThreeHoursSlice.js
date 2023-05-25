@@ -10,7 +10,7 @@ const ThreeHoursSlice = createSlice({
     initialState,
     reducers: {
         add(state, action){ 
-            state.data=action.payload;
+            state.index=action.payload;
         }
     }
 })

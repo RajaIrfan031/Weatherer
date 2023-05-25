@@ -9,7 +9,7 @@ const Sidebar = ({ isOn}) =>{
     const navigate = useNavigate();
 
     return(
-        <div className="flex w-full md:w-[10%] justify-center md:h-[100%] md:p-8 pt-4 pb-4 sm:flex-grow-0 min-w-[140px] max-h-[600px]">
+        <div className="flex w-full md:w-[10%] justify-center items-stretch md:h-[100%] md:p-8 pt-4 pb-4 sm:flex-grow-0 min-w-[140px] max-h-[600px]">
             <div className="flex w-[90%] h-full bg-[#202B3B] rounded-2xl">
                 <div className="flex md:flex-col flex-row w-full">
                     <TiWeatherWindy size={30} className="text-slate-500 self-center mt-6 mb-6 cursor-pointer"/>

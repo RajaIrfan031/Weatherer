@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import City from "../components/City";
 import FullDayForecast from "../components/FullDayForecast";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "../redux/store";
 import TodayDetailedView from "../components/TodayDetailedView";
 import { useLocation } from "react-router-dom";
@@ -34,7 +34,7 @@ const DetailPage = ()=>{
                   onKeyDown={(event)=>{searchCity(event)}}
                   />
                 </div>
-                <City />
+                <City locationData={currentForecast}/>
                 <TodayDetailedView currentForecast={currentForecast}/>
               </div>
               <div className="flex flex-auto bg-[#0B131E]">

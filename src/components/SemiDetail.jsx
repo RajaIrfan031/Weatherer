@@ -14,8 +14,8 @@ const SemiDetail =()=>{
 
     return(
         <>
-            <div className='w-full p-8 sm:p-0'>
-                <div className='w-full flex rounded-lg p-4 bg-[#202B3B]'>
+            <div className='w-full'>
+                <div className='w-full flex rounded-lg p-4 '>
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row justify-between w-full mb-4'>
                             <p className='text-slate-400 font-semibold text-sm'>Air Conditions</p>
