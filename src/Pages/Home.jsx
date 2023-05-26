@@ -28,7 +28,7 @@ const Home = ()=>{
         <>
           <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid md:grid-cols-6 md:grid-flow-col bg-[#0B131E] gap-2">
             <div className="col-span-1">
-              <Sidebar isOn={2}/>
+              <Sidebar isOn={1}/>
             </div>
             <div className="grid grid-flow-row col-span-3 md:p-0 p-8 md:pt-8">
               <input className="p-4 bg-[#202B3B] w-full rounded-md text-slate-400 h-8" placeholder="Search for city"/>

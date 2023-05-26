@@ -6,7 +6,7 @@ import Home from './Pages/Home';
 import DetailPage from './Pages/DetailPage';
 import CitiesPage from './Pages/CitiesPage';
 import RootLayout from './Pages/RootLayout';
-
+import FavoritesPage from './Pages/FavoritesPage';
 
 function App() {
 
@@ -16,9 +16,9 @@ function App() {
       <Route path="/home" element ={<Home />}></Route>
       <Route path="/detailpage" element ={<DetailPage />}></Route>
       <Route path="/citiespage" element ={<CitiesPage />}></Route>
+      <Route path="/favoritespage" element ={<FavoritesPage />}></Route>
     </Route>
   ))
-
 
 return(
   <>
@@ -26,22 +26,5 @@ return(
   </>
 )
 }
-
-// const App =()=> {
-//   return (
-//     <>
-//     <BrowserRouter>
-//     <Routes>
-//       <Route path="/" element={<LandingPage />} />
-//         <Route index element={<LandingPage />}/>
-//         <Route path="/home" element={<Home />}/>
-//         <Route path="/detailpage" element={<DetailPage />} />
-//         <Route path="/citiespage" element={<CitiesPage />} />
-        
-//     </Routes>
-//     </BrowserRouter>
-//     </>
-//   );
-// }
 
 export default App;

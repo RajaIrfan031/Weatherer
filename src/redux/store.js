@@ -4,6 +4,7 @@ import currentForecastSlice from "./currentForecastSlice";
 import threeDaysForecastSlice from "./threeDaysForecastSlice";
 import ThreeHoursSlice from "./threeHoursSlice";
 import getCitiesSlice from './getCitiesSlice'
+import favoritesSlice from "./favoritesSlice";
 
 const store = configureStore(
       {
@@ -13,6 +14,7 @@ const store = configureStore(
                   threeDaysForecast: threeDaysForecastSlice,
                   threeHours: ThreeHoursSlice,
                   getCities: getCitiesSlice,
+                  getFavorites: favoritesSlice,
             }
       }
 )

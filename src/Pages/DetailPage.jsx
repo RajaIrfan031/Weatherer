@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import City from "../components/City";
 import FullDayForecast from "../components/FullDayForecast";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "../redux/store";
 import TodayDetailedView from "../components/TodayDetailedView";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { add } from "../redux/favoritesSlice";
 
 const DetailPage = ()=>{
 
   const location = useLocation();
   const { currentForecast } = location.state !== undefined ? location.state : 'undefined';
   const [city, setCity] = useState('');
+  const dispatch = useDispatch();
+  
   const searchCity = (event)=>{
     if(event.key === 'Enter'){
       console.log(city);
     }
+  }
+
+  const addToFavorites = (favorite) =>{
+    dispatch(add(favorite));
   }
 
     return(
@@ -35,7 +42,10 @@ const DetailPage = ()=>{
                   />
                 </div>
                 <City locationData={currentForecast}/>
-                <TodayDetailedView currentForecast={currentForecast}/>
+                <div>
+                <button onClick={()=>{addToFavorites(currentForecast.location.name)}} className='text-sm font-2xl'>Add to favorite</button>
+                </div>
+                 <TodayDetailedView currentForecast={currentForecast}/>
               </div>
               <div className="flex flex-auto bg-[#0B131E]">
               <div className='flex h-full max-h-screen w-full mt-[4%] mr-4 justify-center min-w-[320px]'>

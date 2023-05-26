@@ -35,8 +35,9 @@ const Home = () =>{
                   <TiWeatherWindy size={'100%'} className='md:h-24 h-0'/>
                   <h1 className='text-4xl mt-4'>Weather-er</h1>
                   <p className='text-slate-300 mb-4'>The Weather App</p>
-                  <button onClick={handleShowForm} className='my-4 text-sm font-2xl'>Get Started</button>
-                  <button to="/home" className='text-sm font-2xl'><Link to="/home">Continue as guest</Link></button>
+                  <Link to="/home" className='text-sm font-2xl'><button>Get Started</button></Link>
+                  {/* <button onClick={handleShowForm} className='my-4 text-sm font-2xl'>Get Started</button> */}
+                  {/* <button to="/home" className='text-sm font-2xl'><Link to="/home">Continue as guest</Link></button> */}
               </div>
             </div>
           </div>        

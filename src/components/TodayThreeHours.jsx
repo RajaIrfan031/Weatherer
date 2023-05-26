@@ -9,7 +9,9 @@ const TodayThreeHours = () =>{
     return(
         <>
             <div className="text-slate-500 border-0 border-t-[1px] border-slate-500 mt-4 pt-2">
-                <p className="text-slate-500 font-semibold ">Today's Forecast</p>
+                <div className="flex w-full justify-center md:justify-start">
+                    <p className="text-slate-500 font-semibold ">Today's Forecast</p>
+                </div>
                 <div className="grid grid-flow-col mt-4 border-0 border-b-[1px] border-slate-700 pb-4">
                 {
                 data[index].forecast !== undefined ?
@@ -17,7 +19,7 @@ const TodayThreeHours = () =>{
                     return(
                         <div>
                             {
-                                time === '2023-05-25 09:00' || time === '2023-05-25 12:00' || time === '2023-05-25 15:00' ? 
+                                time.slice(-5) === '09:00' || time.slice(-5) === '12:00' || time.slice(-5) === '15:00' ? 
                                 <div className="grid grid-flow-col border-0 border-r-2 border-slate-700 mx-4">
                                     <div className="flex flex-col w-full items-center">
                                         <pre className="font-semibold text-slate-400">{time.slice(-5)}</pre>

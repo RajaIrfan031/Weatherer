@@ -6,6 +6,12 @@ const initialState = {
         "location": {
           "id": 0,
           "name": "Manchester",
+        },
+        "current": {
+          "temp_c": 0,
+          "condition":{
+           "icon" : ""
+          }
         }
       },
       {
@@ -23,7 +29,7 @@ const initialState = {
       {
         "location": {
           "id": 3,
-          "name": "London",
+          "name": "Birmingham",
         }
       },
   ]

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
+import React from 'react';
+ 
 const City = ({locationData})=>{
 
       
       //const locationData = useSelector(state => state.currentForecast.data)
+
 
       return(
             <>
@@ -13,7 +13,12 @@ const City = ({locationData})=>{
                         <h1 className='font-semibold text-xl'>{locationData.location.name}</h1>
                         <p className='text-xs text-slate-400 mt-1'>{locationData.location.region}</p>
                         <p className='text-xs text-slate-400 mt-1'>{locationData.location.country}</p>
+                  {
+                        locationData.current.temp_c !== undefined  ?
                         <h1 className='mt-4 text-4xl font-bold'>{locationData.current.temp_c}&#xb0;</h1>
+                        :
+                        <p>Loading...</p>
+                  }
                   </div>
                   <div className='flex w-full h-full col-span-2 max-h-[160px]'>
                         <img width={160} src={locationData.current.condition.icon} alt=""/>
