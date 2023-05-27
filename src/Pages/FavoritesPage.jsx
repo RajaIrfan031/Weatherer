@@ -11,18 +11,13 @@ import FavoritesList from "../components/FavoritesList";
 
 const FavoritesPage = ()=>{ 
 
-  const dispatch = useDispatch();
-  const citiesList = useSelector(state => state.getCities.data)
-  const data = useSelector(state => state.getFavorites.data);
-  const currentForecast = useSelector(state => state.currentForecast.data);
+  const dispatch = useDispatch(); 
+  const data = useSelector(state => state.getFavorites.data); 
 
-  useEffect(()=>{
-    // dispatch(fetchCitiesWeather());
+  useEffect(()=>{ 
     dispatch(add(0))
-  },[]);
-
-  const index = useSelector(state => state.threeHours.index);
-
+    console.log("data: ", data);
+  },[]); 
   
   return(
     <Provider store={store} >

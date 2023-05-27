@@ -1,16 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const TodayThreeHours = () =>{
 
     const data = useSelector(state => state.getCities.data);
     const index = useSelector(state => state.threeHours.index);
+    
 
     return(
         <>
             <div className="text-slate-500 border-0 border-t-[1px] border-slate-500 mt-4 pt-2">
-                <div className="flex w-full justify-center md:justify-start">
+                <div className="flex flex-row w-full justify-between px-2 my-5">
                     <p className="text-slate-500 font-semibold ">Today's Forecast</p>
+                {
+                data[index].forecast !== undefined ?
+                <Link to="/detailpage" state={{todaysForecast: data[index].forecast.forecastday[0].hour, currentForecast: data[index]}}>
+                    <button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button>
+                </Link>
+                : null
+                }
                 </div>
                 <div className="grid grid-flow-col mt-4 border-0 border-b-[1px] border-slate-700 pb-4">
                 {

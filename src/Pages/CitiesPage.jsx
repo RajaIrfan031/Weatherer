@@ -34,9 +34,8 @@ const CitiesPage = ()=>{
           <CitiesList list={citiesList}/>
         </div>
         <div className="col-span-2">
-          <div className="pt-8">
-          {/* {JSON.stringify(data[index],null, 2)} */}
-            {/* <City locationData={data[index]}/> */}
+          <div className="pt-8"> 
+            <City locationData={data[index]}/>
             <TodayThreeHours />
           </div>
         </div>

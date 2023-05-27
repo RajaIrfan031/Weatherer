@@ -37,8 +37,7 @@ const currentForecastSlice = createSlice({
 
 export const getCurrentForecast = createAsyncThunk("getWeather/currentForecast", async()=>{
     const data = await fetch("http://api.weatherapi.com/v1/current.json?key=4fa4d82e8f4f4ca6b08191330232005&q=Manchester");
-      const result = await data.json();
-      console.log("resulted: ",result);
+      const result = await data.json(); 
       return result;
 })
 

@@ -12,6 +12,7 @@ const DetailPage = ()=>{
 
   const location = useLocation();
   const { currentForecast } = location.state !== undefined ? location.state : 'undefined';
+  const {todaysForecast} = location.state !== undefined ? location.state : 'undefined';
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
   
@@ -28,6 +29,7 @@ const DetailPage = ()=>{
     return(
         <Provider store={store}>
             <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen">
+              {/* <pre>{JSON.stringify(currentForecast, null, 2)}</pre> */}
               <div className="flex flex-auto bg-[#0B131E]">
                 <Sidebar isOn={0}/>
               </div>
@@ -50,7 +52,7 @@ const DetailPage = ()=>{
               <div className="flex flex-auto bg-[#0B131E]">
               <div className='flex h-full max-h-screen w-full mt-[4%] mr-4 justify-center min-w-[320px]'>
                 <div className='bg-[#202B3B] h-[90%] w-full rounded-xl pt-6 text-slate-400 max-w-[360px] pl-4 ml-4 sm:ml-0 overflow-hidden'>
-                  <FullDayForecast />
+                  <FullDayForecast todaysForecast={todaysForecast}/>
                 </div>
               </div>
               </div>

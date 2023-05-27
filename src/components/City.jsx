@@ -1,11 +1,7 @@
 import React from 'react';
  
 const City = ({locationData})=>{
-
-      
-      //const locationData = useSelector(state => state.currentForecast.data)
-
-
+ 
       return(
             <>
             <div className='grid grid-flow-row text-slate-200 h-full w-full grid-cols-5'>
