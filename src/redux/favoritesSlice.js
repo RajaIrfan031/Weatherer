@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const added = localStorage.getItem('favorites') !== null ? localStorage.getItem('favorites') : []
+const added = localStorage.getItem('favorites') !== null ? JSON.parse(localStorage.getItem('favorites')) : []
 
 const initialState = {
     data: added
@@ -11,18 +11,18 @@ const favoriteSlice = createSlice({
     initialState,
     reducers: {
         add(state, action){
-            // state.data = [...state.data,action.payload];
-            // localStorage.setItem('favorites', JSON.stringify([...state.data,action.payload]));
-            // state.data.indexOf(action.payload) === -1 ? localStorage.setItem('favorites', JSON.stringify([...state.data,action.payload])) : null;
-            state.data = state.data.indexOf(action.payload) === -1 ? [...state.data,action.payload] : state.data;
-            console.log(state.data.indexOf(action.payload));
-            if(state.data.indexOf(action.payload) === -1){
-                console.log(state.data.indexOf(action.payload));
-                localStorage.setItem('favorites', JSON.stringify([...state.data,action.payload]))
-            }
+            let key = state.data.find(city => city.name === action.payload.name); 
+            if(key === undefined){
+                    localStorage.setItem('favorites',  JSON.stringify([...state.data,action.payload]));
+                    state.data = [...state.data,action.payload];
+            }  
         },
         remove(state, action){
-            return state.filter(favorite => favorite.id !== action.payload);
+            let key = state.data.findIndex(city => city.name === action.payload)
+            if(key > -1){
+                state.data.splice(key, 1)
+                localStorage.setItem('favorites', JSON.stringify(state.data));
+            }
         },
         clearFavorites(state, action){
             return []

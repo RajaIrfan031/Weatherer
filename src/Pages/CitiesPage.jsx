@@ -13,15 +13,13 @@ const CitiesPage = ()=>{
   const dispatch = useDispatch();
   const citiesList = useSelector(state => state.getCities.data)
   const data = useSelector(state => state.getCities.data);
-  const currentForecast = useSelector(state => state.currentForecast.data);
-
+  
   useEffect(()=>{
     dispatch(fetchCitiesWeather());
     dispatch(add(0))
   },[]);
 
   const index = useSelector(state => state.threeHours.index);
-
   
   return(
     <Provider store={store} >
@@ -36,7 +34,7 @@ const CitiesPage = ()=>{
         <div className="col-span-2">
           <div className="pt-8"> 
             <City locationData={data[index]}/>
-            <TodayThreeHours />
+            <TodayThreeHours data={data} index={index}/>
           </div>
         </div>
       </div>

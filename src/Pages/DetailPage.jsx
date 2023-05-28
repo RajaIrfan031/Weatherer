@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import City from "../components/City";
 import FullDayForecast from "../components/FullDayForecast";
@@ -6,15 +6,32 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "../redux/store";
 import TodayDetailedView from "../components/TodayDetailedView";
 import { Link, useLocation } from "react-router-dom";
-import { add } from "../redux/favoritesSlice";
+import { add, remove } from "../redux/favoritesSlice";
 
 const DetailPage = ()=>{
 
   const location = useLocation();
   const { currentForecast } = location.state !== undefined ? location.state : 'undefined';
   const {todaysForecast} = location.state !== undefined ? location.state : 'undefined';
+  const [isFavorite, setIsFavorite] = useState(false);
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    checkAdded()
+    }, [])
+
+  const checkAdded = () =>{
+    const added = localStorage.getItem('favorites') !== null ? JSON.parse(localStorage.getItem('favorites')) : []
+    let isAdded = added.find(city => city.name === currentForecast.location.name);
+    if(isAdded !== undefined){
+      console.log("is added ");
+      setIsFavorite(true);
+    }
+    else {
+      setIsFavorite(false)
+    }
+  }
   
   const searchCity = (event)=>{
     if(event.key === 'Enter'){
@@ -24,12 +41,17 @@ const DetailPage = ()=>{
 
   const addToFavorites = (favorite) =>{
     dispatch(add(favorite));
+    checkAdded();
   }
 
+  const removeFromFavorites =(favorite) =>{
+    dispatch(remove(favorite));
+    console.log("faovriets");
+    checkAdded()
+  }
     return(
         <Provider store={store}>
-            <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen">
-              {/* <pre>{JSON.stringify(currentForecast, null, 2)}</pre> */}
+            <div className="w-full h-full pb-8 bg-[#0B131E] md:flex md:flex-row min-h-screen"> 
               <div className="flex flex-auto bg-[#0B131E]">
                 <Sidebar isOn={0}/>
               </div>
@@ -45,7 +67,12 @@ const DetailPage = ()=>{
                 </div>
                 <City locationData={currentForecast}/>
                 <div>
-                <button onClick={()=>{addToFavorites(currentForecast.location.name)}} className='text-sm font-2xl'>Add to favorite</button>
+                {
+                  isFavorite ===true ? 
+                  <button onClick={()=>{removeFromFavorites(currentForecast.location.name)}} className='text-sm font-xl text-slate-200'>Remove from favorites</button>
+                  :
+                  <button onClick={()=>{addToFavorites({name: currentForecast.location.name})}} className='text-sm font-xl text-slate-200'>Add to favorite</button>
+                }
                 </div>
                  <TodayDetailedView currentForecast={currentForecast}/>
               </div>

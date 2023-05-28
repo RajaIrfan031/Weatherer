@@ -44,7 +44,6 @@ const GetCitiesSlice = createSlice({
     extraReducers: (builder)=>{
       builder
       .addCase(fetchCitiesWeather.fulfilled, (state, action)=>{
-        console.log("p;: ", action.payload);
         state.data = action.payload;
       })
     }
@@ -58,7 +57,6 @@ export const fetchCitiesWeather = createAsyncThunk('getWeather/getMultiCitiesWea
     const result = await data.json();
     multiData.push(result);
   }
-  console.log("multi: ", multiData);
   return multiData;
 })
 

@@ -1,13 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const TodayThreeHours = () =>{
-
-    const data = useSelector(state => state.getCities.data);
-    const index = useSelector(state => state.threeHours.index);
-    
-
+const TodayThreeHours = ({data, index}) =>{ 
+     
     return(
         <>
             <div className="text-slate-500 border-0 border-t-[1px] border-slate-500 mt-4 pt-2">

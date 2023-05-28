@@ -5,18 +5,21 @@ import Sidebar from "../components/Sidebar";
 import CitiesList from "../components/CitiesList"; 
 import TodayThreeHours from "../components/TodayThreeHours";
 import { fetchCitiesWeather } from "../redux/getCitiesSlice";
-import {add} from '../redux/threeHoursSlice'
+import {add} from '../redux/getFavoritesDataSlice'
 import City from "../components/City";
 import FavoritesList from "../components/FavoritesList";
+import { fetchFavoritesForecast } from "../redux/getFavoritesDataSlice";
 
 const FavoritesPage = ()=>{ 
 
   const dispatch = useDispatch(); 
   const data = useSelector(state => state.getFavorites.data); 
-
-  useEffect(()=>{ 
-    dispatch(add(0))
-    console.log("data: ", data);
+  const citiesData = useSelector(state => state.getFavoritesData.data);
+  const index = useSelector(state => state.getFavoritesData.index);
+  
+  useEffect(()=>{
+    console.log("getting update");
+    dispatch(fetchFavoritesForecast());
   },[]); 
   
   return(
@@ -27,13 +30,14 @@ const FavoritesPage = ()=>{
         </div>
         <div className="col-span-3 md:p-0 p-8 md:pt-8  max-h-[90%] overflow-scroll no-scrollbar">
           <input className="p-2 bg-[#202B3B] w-full rounded-md text-slate-400" placeholder="Search for city"/>
-          <FavoritesList list={data}/>
+          <FavoritesList list={data} selectedIndex={index}/>
         </div>
         <div className="col-span-2">
-          <div className="pt-8 ">
-          {/* <pre>sdaf{JSON.stringify(data,null, 2)}</pre> */}
+          <div className="pt-8 text-white">
+            <pre>sdaf{JSON.stringify(index,null, 2)}</pre>
+          {/* <pre>sdaf{JSON.stringify(citiesData,null, 2)}</pre> */}
             {/* <City locationData={data}/> */}
-            {/* <TodayThreeHours /> */}
+            <TodayThreeHours data={citiesData} index={index}/>
           </div>
         </div>
       </div>
