@@ -4,8 +4,7 @@ import store from "../redux/store";
 import Sidebar from "../components/Sidebar";
 import CitiesList from "../components/CitiesList"; 
 import TodayThreeHours from "../components/TodayThreeHours";
-import { fetchCitiesWeather } from "../redux/getCitiesSlice";
-import {add} from '../redux/getFavoritesDataSlice'
+import { fetchCitiesWeather } from "../redux/getCitiesSlice"; 
 import City from "../components/City";
 import FavoritesList from "../components/FavoritesList";
 import { fetchFavoritesForecast } from "../redux/getFavoritesDataSlice";
@@ -18,7 +17,6 @@ const FavoritesPage = ()=>{
   const index = useSelector(state => state.getFavoritesData.index);
   
   useEffect(()=>{
-    console.log("getting update");
     dispatch(fetchFavoritesForecast());
   },[]); 
   
@@ -34,10 +32,11 @@ const FavoritesPage = ()=>{
         </div>
         <div className="col-span-2">
           <div className="pt-8 text-white">
-            <pre>sdaf{JSON.stringify(index,null, 2)}</pre>
+            {/* <pre>sdaf{JSON.stringify(index,null, 2)}</pre> */}
           {/* <pre>sdaf{JSON.stringify(citiesData,null, 2)}</pre> */}
             {/* <City locationData={data}/> */}
             <TodayThreeHours data={citiesData} index={index}/>
+            {/* <div>{JSON.stringify(citiesData, null, 2)}</div> */}
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ const FavoritesList = ({list,selectedIndex})=>{
                 className={index !== selectedIndex ? "w-full h-20 rounded-lg bg-[#202B3B] p-8 my-2 hover:cursor-pointer hover:bg-[#0B131E] hover:border-[#202B3B] hover:border"
                     : "w-full h-20 rounded-lg p-8 my-2 cursor-pointer bg-[#0B131E] border-[#202B3B] border hover:bg-[#212935]"
             }>
-                <p className="text-slate-300 font-semibold">{name} index: {index}</p>
+                <p className="text-slate-300 font-semibold">{name}</p>
             </div>
             );
             })

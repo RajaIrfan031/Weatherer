@@ -25,7 +25,8 @@ const getFavoritesDataSlice = createSlice({
 
 export const fetchFavoritesForecast = createAsyncThunk('getweather/getfavoritesforecast', async()=>{
     const multiData = [];
-    for(const city of initialState.data){ 
+    const stored = localStorage.getItem('favorites') !== null ? JSON.parse(localStorage.getItem('favorites')) : []
+    for(const city of stored){ 
         const data = await fetch(`https://api.weatherapi.com/v1/forecast.json?q=${city.name}&days=1&aqi=no&key=4fa4d82e8f4f4ca6b08191330232005%20`);
         const result = await data.json();
         multiData.push(result);
