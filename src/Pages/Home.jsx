@@ -7,7 +7,6 @@ import SemiDetail from "../components/SemiDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentForecast } from "../redux/currentForecastSlice";
 import GetInput from "../components/search/GetInput";
-import HomeCity from "../components/HomeCity";
 
 const Home = ()=>{
 
@@ -27,7 +26,7 @@ const Home = ()=>{
             </div>
             <div className="grid grid-flow-row col-span-4 md:p-0 p-8 md:pt-8">
               <GetInput />
-              <HomeCity />
+              <City locationData={currentForecast}/>
               <TodayForecast /> 
             </div>
             <div className="grid grid-flow-row h-[90%] col-span-2 my-8 rounded-lg mr-4 min-w-full p-4">
