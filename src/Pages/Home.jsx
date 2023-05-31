@@ -1,4 +1,4 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import City from "../components/City";
 import TodayForecast from "../components/TodayForecast"; 
@@ -20,11 +20,11 @@ const Home = ()=>{
 
     return(
         <>
-          <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid md:grid-cols-6 md:grid-flow-col bg-[#0B131E] gap-2">
+          <div className="h-full w-full min-h-[screen] md:h-screen md:w-screen md:grid lg:grid-cols-7 md:grid-flow-col bg-[#0B131E] gap-2">
             <div className="col-span-1">
               <Sidebar isOn={1}/>
             </div>
-            <div className="grid grid-flow-row col-span-3 md:p-0 p-8 md:pt-8">
+            <div className="grid grid-flow-row col-span-4 md:p-0 p-8 md:pt-8">
               <GetInput />
               <City locationData={currentForecast}/>
               <TodayForecast /> 

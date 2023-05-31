@@ -5,7 +5,7 @@ const initialState = {
     index: 0,
 }
 
-const ThreeHoursSlice = createSlice({
+const threeHoursSlice = createSlice({
     name: 'threehours',
     initialState,
     reducers: {
@@ -15,5 +15,5 @@ const ThreeHoursSlice = createSlice({
     }
 })
 
-export const {add} = ThreeHoursSlice.actions;
-export default ThreeHoursSlice.reducer;
+export const {add} = threeHoursSlice.actions;
+export default threeHoursSlice.reducer;
