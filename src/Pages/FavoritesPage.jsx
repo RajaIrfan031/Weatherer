@@ -4,9 +4,9 @@ import store from "../redux/store";
 import Sidebar from "../components/Sidebar";
 import CitiesList from "../components/CitiesList"; 
 import TodayThreeHours from "../components/TodayThreeHours";
-import { fetchCitiesWeather } from "../redux/getCitiesSlice"; 
+import GetInput from '../components/search/GetInput';
 import City from "../components/City";
-import FavoritesList from "../components/FavoritesList";
+import FavoritesList from "../components/ShowList";
 import { fetchFavoritesForecast } from "../redux/getFavoritesDataSlice";
 
 const FavoritesPage = ()=>{ 
@@ -26,17 +26,13 @@ const FavoritesPage = ()=>{
         <div className="col-span-1">
           <Sidebar isOn={3}/>
         </div>
-        <div className="col-span-3 md:p-0 p-8 md:pt-8  max-h-[90%] overflow-scroll no-scrollbar">
-          <input className="p-2 bg-[#202B3B] w-full rounded-md text-slate-400" placeholder="Search for city"/>
-          <FavoritesList list={data} selectedIndex={index}/>
+        <div className="col-span-3 md:p-1 p-8 md:pt-8  max-h-[90%] overflow-scroll no-scrollbar">  
+          <GetInput />
+          <FavoritesList title="Favorite Cities" list={data} selectedIndex={index}/>
         </div>
         <div className="col-span-2">
-          <div className="pt-8 text-white">
-            {/* <pre>sdaf{JSON.stringify(index,null, 2)}</pre> */}
-          {/* <pre>sdaf{JSON.stringify(citiesData,null, 2)}</pre> */}
-            {/* <City locationData={data}/> */}
-            <TodayThreeHours data={citiesData} index={index}/>
-            {/* <div>{JSON.stringify(citiesData, null, 2)}</div> */}
+          <div className="pt-8 text-white"> 
+            <TodayThreeHours data={citiesData} index={index}/> 
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const TodayForecast = ()=>{
       const maxTime = parseInt(GetCurrentTime.Time) +5;
 
       useEffect(()=>{
-            dispatch(fetchtodayForecast());
+            dispatch(fetchtodayForecast("Manchester"));
       }, [])
       
       return(

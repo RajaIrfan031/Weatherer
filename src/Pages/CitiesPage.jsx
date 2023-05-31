@@ -7,6 +7,7 @@ import TodayThreeHours from "../components/TodayThreeHours";
 import { fetchCitiesWeather } from "../redux/getCitiesSlice";
 import {add} from '../redux/threeHoursSlice'
 import City from "../components/City";
+import GetInput from '../components/search/GetInput';
 
 const CitiesPage = ()=>{ 
 
@@ -28,7 +29,7 @@ const CitiesPage = ()=>{
           <Sidebar isOn={2}/>
         </div>
         <div className="col-span-3 md:p-0 p-8 md:pt-8">
-          <input className="p-2 bg-[#202B3B] w-full rounded-md text-slate-400" placeholder="Search for city"/>
+          <GetInput />
           <CitiesList list={citiesList}/>
         </div>
         <div className="col-span-2">

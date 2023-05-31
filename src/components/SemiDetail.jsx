@@ -19,8 +19,9 @@ const SemiDetail =()=>{
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row justify-between w-full mb-4'>
                             <p className='text-slate-400 font-semibold text-sm'>Air Conditions</p>
-                            {/* <pre>{JSON.stringify(currentForecast, null, 2)}</pre> */}
-                            <Link to="/detailpage" state={{ todaysForecast: todaysForecast, currentForecast: currentForecast}}><button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button></Link>
+                            <Link to="/detailpage" state={{ todaysForecast: todaysForecast, currentForecast: currentForecast}}>
+                                <button className='text-sm w-[80px] min-h-[0px] p-1 text-slate-200 rounded-2xl min-w-[0px]'>See more</button>
+                            </Link>
                         </div>
                         <div className='grid grid-cols-2'>
                             <SemiDetailGrid icon={<FaTemperatureHigh />}

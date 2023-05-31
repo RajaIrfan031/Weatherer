@@ -6,23 +6,17 @@ import SevenDaysForecast from "../components/SevenDaysForecast";
 import SemiDetail from "../components/SemiDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentForecast } from "../redux/currentForecastSlice";
+import GetInput from "../components/search/GetInput";
 
 const Home = ()=>{
 
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(getCurrentForecast())
+    dispatch(getCurrentForecast("Manchester"))
   },[])
 
   const currentForecast = useSelector(state => state.currentForecast.data);
-
-  const [city, setCity] = useState('');
-  const searchCity = (event)=>{
-    if(event.key === 'Enter'){
-      console.log(city);
-    }
-  }
 
     return(
         <>
@@ -31,7 +25,7 @@ const Home = ()=>{
               <Sidebar isOn={1}/>
             </div>
             <div className="grid grid-flow-row col-span-3 md:p-0 p-8 md:pt-8">
-              <input className="p-4 bg-[#202B3B] w-full rounded-md text-slate-400 h-8" placeholder="Search for city"/>
+              <GetInput />
               <City locationData={currentForecast}/>
               <TodayForecast /> 
             </div>

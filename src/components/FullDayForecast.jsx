@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'; 
-import { useDispatch, useSelector } from 'react-redux'; 
-import { useLocation } from 'react-router-dom';
+import React from 'react';  
 
 const FullDayForecast = ({todaysForecast})=>{
  
@@ -13,9 +11,6 @@ const FullDayForecast = ({todaysForecast})=>{
                 Object.keys(todaysForecast).map((index)=>{
                         return(
                                 <div key={index} className='flex flex-row w-full justify-between border-b py-4 border-b-slate-500 '>
-                                        {/* {
-                                                index==0 ? <pre>{todaysForecast[index]}</pre> : null
-                                        } */}
                                 <p className='text-base mt-3'>{todaysForecast[index].time.slice(-5)}</p> 
                                 <div className='flex flex-row '>
                                         <img src={todaysForecast[index].condition.icon} width={48} alt="" />
