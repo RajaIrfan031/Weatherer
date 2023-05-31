@@ -32,8 +32,7 @@ const DetailPage = ()=>{
     }
   } 
 
-  const addToFavorites = (favorite) =>{
-    console.log("add following: ", favorite);
+  const addToFavorites = (favorite) =>{ 
     dispatch(add(favorite));
     checkAdded();
   }
