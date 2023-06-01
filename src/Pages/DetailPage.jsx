@@ -55,7 +55,7 @@ const DetailPage = ()=>{
                 <div>
                 {
                   isFavorite ===true ? 
-                  <button onClick={()=>{removeFromFavorites(currentForecast.location.name)}} className='text-sm font-xl text-slate-200'>Remove from favorites</button>
+                  <button onClick={()=>{removeFromFavorites({name: currentForecast.location.name, region: currentForecast.location.region})}} className='text-sm font-xl text-slate-200'>Remove from favorites</button>
                   :
                   <button onClick={()=>{addToFavorites({name: currentForecast.location.name, region: currentForecast.location.region})}} className='text-sm font-xl text-slate-200'>Add to favorite</button>
                 }

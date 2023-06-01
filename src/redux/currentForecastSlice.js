@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import StatusCode from "../utils/StatusCode";
+import Weather from "../constants/Weather";
 
 const initialState = {
     data: {
@@ -19,6 +21,7 @@ const initialState = {
             }
         }
     },
+    status: StatusCode.IDLE
 }
 
 const currentForecastSlice = createSlice({
@@ -29,16 +32,23 @@ const currentForecastSlice = createSlice({
     },
     extraReducers: (builder)=>{
         builder
+        .addCase(getCurrentForecast.pending, (state, action)=>{
+            state.status = StatusCode.LOADING
+        })
         .addCase(getCurrentForecast.fulfilled, (state, action)=>{
             state.data = action.payload;
+            state.status = StatusCode.IDLE
+        })
+        .addCase(getCurrentForecast.rejected, (state, action)=>{
+            state.status = StatusCode.ERROR
         })
     }
 })
 
 export const getCurrentForecast = createAsyncThunk("getWeather/currentForecast", async(city)=>{
-    const data = await fetch(`https://api.weatherapi.com/v1/current.json?key=4fa4d82e8f4f4ca6b08191330232005&q=${city}`);
-      const result = await data.json(); 
-      return result;
+    const data = await fetch(`${Weather.BASE_URL}current.json?key=${Weather.API_KEY}&q=${city}`);
+    const result = await data.json();  
+    return result;
 })
 
 export default currentForecastSlice.reducer;

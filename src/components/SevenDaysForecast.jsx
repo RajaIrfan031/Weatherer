@@ -1,16 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchThreeDaysForecast } from '../redux/threeDaysForecastSlice';
+import React from 'react';
 import GetCurrentDate from '../utils/GetCurrentDate';
 
-const SevenDaysForecast = ()=>{
-
-      const dispatch = useDispatch();
-      const forecastData = useSelector(state => state.threeDaysForecast.data);
-
-      useEffect(()=>{ 
-            dispatch(fetchThreeDaysForecast());
-      },[]); 
+const SevenDaysForecast = ({forecastData})=>{
 
       return(
             <>

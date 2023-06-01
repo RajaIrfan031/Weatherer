@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchtodayForecast } from '../redux/todaysForecastSlice';
+import React from 'react';
 import GetCurrentTime from '../utils/GetCurrentTime';
 
-const TodayForecast = ()=>{
+const TodayForecast = ({todayData})=>{
       
-      const dispatch = useDispatch();
-      const todayData = useSelector(state => state.todaysForecast.data);
       const time = parseInt(GetCurrentTime.Time);
       const maxTime = parseInt(GetCurrentTime.Time) +5;
 
-      useEffect(()=>{
-            dispatch(fetchtodayForecast("Manchester"));
-      }, [])
-      
       return(
             <>
             <div className='mb-4 mt-4 sm:w-full sm:pl-0 w-[95%] pl-[5%]'>

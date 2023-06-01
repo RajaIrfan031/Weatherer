@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import Weather from "../constants/Weather";
+import StatusCode from "../utils/StatusCode";
 
 const initialState = {
     data: [
@@ -32,7 +34,8 @@ const initialState = {
           "name": "Birmingham",
         }
       },
-  ]
+  ],
+  status: StatusCode.IDLE
 }
 
 const GetCitiesSlice = createSlice({
@@ -42,18 +45,25 @@ const GetCitiesSlice = createSlice({
 
     },
     extraReducers: (builder)=>{
-      builder
-      .addCase(fetchCitiesWeather.fulfilled, (state, action)=>{
-        state.data = action.payload;
-      })
+    builder
+    .addCase(fetchCitiesWeather.pending, (state, action)=>{
+      state.status = StatusCode.LOADING
+    })
+    .addCase(fetchCitiesWeather.fulfilled, (state, action)=>{
+      state.status = StatusCode.IDLE;
+      state.data = action.payload;
+    })
+    .addCase(fetchCitiesWeather.rejected, (state, action)=>{
+        state.status = StatusCode.ERROR;
+    })
     }
 })
 
 export const fetchCitiesWeather = createAsyncThunk('getWeather/getMultiCitiesWeather', async()=>{
   
   const multiData = [];
-  for(const city of initialState.data){ 
-    const data = await fetch(`https://api.weatherapi.com/v1/forecast.json?q=${city.location.name}&days=1&aqi=no&key=4fa4d82e8f4f4ca6b08191330232005%20`);
+  for(const city of initialState.data){  
+    const data = await fetch(`${Weather.BASE_URL}forecast.json?q=${city.location.name}&days=1&aqi=no&key=${Weather.API_KEY}`);
     const result = await data.json();
     multiData.push(result);
   }
