@@ -25,7 +25,7 @@ const Sidebar = ({ isOn}) =>{
                             <TiThList className="self-center"/>
                             <p className="font-semibold sm:text-sm text-xs self-center">Favorites</p>
                         </li>
-                        <li className={isOn === 4 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
+                        <li onClick={()=>navigate('/settingspage')} className={isOn === 4 ? "flex flex-col my-4 w-full cursor-pointer p-2 text-slate-200 hover:text-slate-400" : "flex flex-col my-4 w-full cursor-pointer p-2 hover:text-slate-400" }>
                             <IoMdSettings  className="self-center"/>
                             <p className="font-semibold sm:text-sm text-xs self-center">Settings</p>
                         </li> 

@@ -8,6 +8,7 @@ import CitiesPage from './Pages/CitiesPage';
 import RootLayout from './Pages/RootLayout';
 import FavoritesPage from './Pages/FavoritesPage';
 import SearchPage from './Pages/SearchPage';
+import SettingsPage from './Pages/SettingsPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/citiespage" element ={<CitiesPage />}></Route>
       <Route path="/favoritespage" element ={<FavoritesPage />}></Route>
       <Route path="/searchpage" element ={<SearchPage />}></Route>
+      <Route path="/settingspage" element ={<SettingsPage />}></Route>
     </Route>
   ))
 
